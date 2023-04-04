@@ -24,7 +24,8 @@
             <if test="Email != null">Email=#{Email},</if>
             <if test="address != null">address=#{address},</if>
             <if test="pic != null">pic=#{pic},</if>
-            <if test="state != null">state=#{state}</if>
+            <if test="state != null">state=#{state},</if>
+            <if test="lastLoginTime != null">lastLoginTime=#{lastLoginTime}</if>
         </set>
              WHERE id=#{id}
     </update>
@@ -40,6 +41,7 @@
         <result column="address" property="address"></result>
         <result column="pic" property="pic"></result>
         <result column="state" property="state"></result>
+        <result column="lastLoginTime" property="lastLoginTime"></result>
         <collection property="commentList" javaType="list" ofType="comment" >
             <id column="id" property="id"></id>
             <result column="commentTime" property="commentTime"></result>

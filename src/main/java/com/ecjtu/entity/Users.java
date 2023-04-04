@@ -1,5 +1,9 @@
 package com.ecjtu.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import org.springframework.format.annotation.DateTimeFormat;
+
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -17,6 +21,9 @@ public class Users {
     private String address;
     private String pic;
     private Integer state=0;
+    @JsonFormat(timezone = "GMT+8", pattern = "yyyy-MM-dd HH:mm:ss")
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    private Date lastLoginTime;
 
     List<Comment> commentList;
     List<AdoptAnimal> animalList;
@@ -117,6 +124,14 @@ public class Users {
 
     public void setState(Integer state) {
         this.state = state;
+    }
+
+    public Date getLastLoginTime() {
+        return lastLoginTime;
+    }
+
+    public void setLastLoginTime(Date lastLoginTime) {
+        this.lastLoginTime = lastLoginTime;
     }
 
     public List<Comment> getCommentList() {

@@ -162,6 +162,7 @@
                             <th>电话</th>
                             <th>地址</th>
                             <th>有无领养</th>
+                            <th>上次登录时间</th>
                             <th>操作</th>
                         </tr>
                         </thead>
@@ -407,6 +408,7 @@
             var ageTd=$("<td></td>").append(user.age);
             var telephoneTd=$("<td></td>").append(user.telephone);
             var addressTd=$("<td></td>").append(user.address);
+            var lastLoginTime=$("<td></td>").append(user.lastLoginTime);
             var stateTd=null;
             if(user.state==0){
                 stateTd=$("<td></td>").append("没有领养经历");
@@ -433,6 +435,7 @@
                 .append(telephoneTd)
                 .append(addressTd)
                 .append(stateTd)
+                .append(lastLoginTime)
                 .append(btnTd)
                 .appendTo("#user_table tbody");
         });
