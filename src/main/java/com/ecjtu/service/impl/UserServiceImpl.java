@@ -6,6 +6,7 @@ import com.ecjtu.service.UsersService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -55,6 +56,11 @@ public class UserServiceImpl implements UsersService {
     @Override
     public Users loginUser(Users users) {
         Users users1 = usersMapper.loginUser(users);
+        // 更新最近登录时间
+        if (users1 != null) {
+            users1.setLastLoginTime(new Date());
+            usersMapper.updateUser(users1);
+        }
         return users1;
     }
 
